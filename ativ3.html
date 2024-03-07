@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let number;
+        let fat2 = 0;
+        do {
+            number = prompt('Digite um número inteiro e positivo');
+        }
+        while(isNaN(number)){
+            let fat = number;
+            for(let int = (number - 1); int > 0; int--){
+                fat *= int;              
+            }
+            alert("O fatorial de "+number+" é: "+fat );
+        }
+
+    </script>
+</head>
+<body>
+    <ol>
+        <li><a href='sem1.html'>VOLTAR</a></li>
+    </ol>
+</body>
+</html>

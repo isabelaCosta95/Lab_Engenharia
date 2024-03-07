@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let frase = prompt('Digite uma frase:');
+        let c = confirm('Deseja ver o tipo de dado da sua frase?');
+        if (c) {
+        let numero = parseFloat(frase);
+        if (isNaN(numero)) {
+            alert('string');
+        } else {
+            alert('número');  
+        }
+        }
+    </script>
+</head>
+<body>
+    <ol>
+        <li><a href='sem1.html'>VOLTAR</a></li>
+    </ol>
+</body>
+</html>
