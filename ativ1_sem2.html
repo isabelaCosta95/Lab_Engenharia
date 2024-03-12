@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <label>Digite uma frase/palavra: </label><br>
+        <input type="text" id="inpVal" onclick="verificar()">
+        <input type="button" id="btnEnviar" value="Enviar" onclick="apresentarValores()">
+        <p id="array"></p>
+    </form>
+
+    <script>
+        var valores = new Array();
+        function apresentarValores() {
+            if (isNaN(document.getElementById("inpVal").value)){
+                let apresentar = document.getElementById("inpVal").value;
+                valores.push(apresentar);
+                let ordenados = valores.sort();
+                console.log(ordenados);
+                document.getElementById("array").innerHTML = 'Valores Ordenados Alfabeticamente: ' + ordenados;
+            }
+            else{
+                alert('Não digite números!');
+            }
+        }
+
+    </script>
+</body>
+
+</html>
