@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data da Semana Formato Internacional</title>
+</head>
+<body>
+    <script>
+        function DiaSemanaIntl() {
+            let hoje = new Date();
+            let diaDaSemana = hoje.getDay();
+
+            if (diaDaSemana > 0 && diaDaSemana < 6) { // De segunda a sexta
+                let opcoes = { weekday: 'long', year: 'numeric', month: 'long' };
+                let dataFormatada = new Intl.DateTimeFormat('pt-BR', opcoes).format(hoje);
+                document.write(dataFormatada);
+            }
+        }
+        DiaSemanaIntl();
+    </script>
+</body>
+</html>
