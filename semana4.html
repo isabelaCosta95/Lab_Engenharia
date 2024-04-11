@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sem4</title>
+    <link rel="stylesheet" href="index4.css">
+</head>
+<body>
+    <form id="formulario">
+        <label for="aluno">
+            <input type="radio" id="aluno" name="tipoPessoa" value="aluno" onchange="alteratags()" checked> Aluno
+        </label>
+        <label for="professor">
+            <input type="radio" id="professor" name="tipoPessoa" value="professor" onchange="alteratags()"> Professor
+        </label>
+
+        <div id="camposComuns">
+            <label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" placeholder="Digite seu nome Completo">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="fulano.com">
+
+            <label for="email">Data de Nascimento:</label>
+            <input type="date" id="date" name="date">
+        </div>
+
+        <label for="email">Telefone fixo:</label>
+        <input type="text" id="fixo" name="fixo" placeholder="(99)9999-9999">
+
+        <label for="email">Celular:</label>
+        <input type="text" id="fone" name="fone" placeholder="(99)9999-9999">
+
+        <label for="email">Matrícula:</label>
+        <input type="text" id="mat" name="mat" placeholder="Digite sua Matrícula" placeholder="Digite sua Matrícula">
+
+        <div id="camposAluno">
+            <label for="curso">Curso:</label>
+            <input type="text" id="curso" name="curso" placeholder="Digite seu curso"><br>
+        </div>
+
+        <div id="camposProfessor" class="hidden">
+            <label for="area">Área:</label>
+            <input type="text" id="area" name="area"><br>
+
+            <label for="lattes">Lattes:</label>
+            <input type="url" id="lattes" name="lattes"><br>
+        </div>
+
+        <button type="submit" onclick="enviarFormulario()">Enviar</button>
+        <button type="submit" onclick="window.reload()">Redefinir</button>
+        <div id="dadosFormulario"></div>
+
+    </form>
+    <script>
+        function Pessoa() {
+        var nome;
+        var email;
+        var dataNascimento;
+        var telefoneFixo;
+        var celular;
+        var matricula;
+
+        this.setNome = function(vNome) {
+            nome = vNome;
+        }
+        this.getNome = function() {
+            return nome;
+        }
+
+        this.setEmail = function(vEmail) {
+            email = vEmail;
+        }
+        this.getEmail = function() {
+            return email;
+        }
+
+        this.setDataNascimento = function(vDataNascimento) {
+            dataNascimento = vDataNascimento;
+        }
+        this.getDataNascimento = function() {
+            return dataNascimento;
+        }
+
+        this.setTelefoneFixo = function(vTelefoneFixo) {
+            telefoneFixo = vTelefoneFixo;
+        }
+        this.getTelefoneFixo = function() {
+            return telefoneFixo;
+        }
+
+        this.setCelular = function(vCelular) {
+            celular = vCelular;
+        }
+        this.getCelular = function() {
+            return celular;
+        }
+
+        this.setMatricula = function(vMatricula) {
+            matricula = vMatricula;
+        }
+        this.getMatricula = function() {
+            return matricula;
+        }
+    }
+
+    function aluno() {
+        Pessoa.call(this);
+        var curso;
+
+        this.setcurso = function(vcurso) {
+            curso = vcurso;
+        }
+        this.getcurso = function() {
+            return curso;
+        }
+    }
+
+    function professor(){
+        Pessoa.call(this);
+        var lattes;
+        var area;
+
+        this.setlattes = function(vlattes) {
+            lattes = vlattes;
+        }
+        this.getlattes = function() {
+            return lattes;
+        }
+
+        this.setarea = function(varea) {
+            area = varea;
+        }
+        this.getarea = function() {
+            return area;
+        }
+    }
+
+    function alteratags() {
+            var escolha_aluno = document.getElementById("aluno").checked;
+            var c_aluno = document.getElementById("c_aluno");
+            var c_professor = document.getElementById("c_professor");
+
+            if (escolha_aluno) {
+                c_aluno.classList.remove("hidden");
+                c_professor.classList.add("hidden");
+            } else {
+                c_professor.classList.remove("hidden");
+                c_aluno.classList.add("hidden");
+            }
+        }
+function enviarFormulario(event) {
+    event.preventDefault(); 
+    var tipoPessoa = document.querySelector('input[name="tipoPessoa"]:checked').value;
+    var nome = document.getElementById("nome").value;
+    var email = document.getElementById("email").value;
+    var dataNascimento = document.getElementById("date").value;
+    var telefoneFixo = document.getElementById("fixo").value;
+    var celular = document.getElementById("fone").value;
+    var matricula = document.getElementById("mat").value;
+    var curso = document.getElementById("curso").value;
+    var area = document.getElementById("area").value;
+    var lattes = document.getElementById("lattes").value;
+
+    var exibir = `<strong>Tipo de Pessoa:</strong> ${tipoPessoa}<br>
+                           <strong>Nome:</strong> ${nome}<br>
+                           <strong>Email:</strong> ${email}<br>
+                           <strong>Data de Nascimento:</strong> ${dataNascimento}<br>
+                           <strong>Telefone Fixo:</strong> ${telefoneFixo}<br>
+                           <strong>Celular:</strong> ${celular}<br>
+                           <strong>Matrícula:</strong> ${matricula}<br>`;
+
+    if (tipoPessoa === "aluno") {
+        exibir += `<strong>Curso:</strong> ${curso}<br>`;
+    } else if (tipoPessoa === "professor") {
+        exibir += `<strong>Área:</strong> ${area}<br>
+                            <strong>Lattes:</strong> ${lattes}<br>`;
+    }
+
+    document.getElementById("dadosFormulario").innerHTML = exibir;
+}
+</script>
+</body>
+</html>
