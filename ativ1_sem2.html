@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,9 +11,9 @@
 <body>
     <form>
         <label>Digite uma frase/palavra: </label><br>
-        <input type="text" id="inpVal" onclick="verificar()">
+        <input type="text" id="inpVal">
         <input type="button" id="btnEnviar" value="Enviar" onclick="apresentarValores()">
-        <p id="array"></p>
+        <div id="array"></div>
     </form>
     <a href='index.html'>voltar</a>
     <script>
@@ -22,13 +23,19 @@
                 let apresentar = document.getElementById("inpVal").value;
                 valores.push(apresentar);
                 let ordenados = valores.sort();
-                console.log(ordenados);
-                document.getElementById("array").innerHTML = 'Valores Ordenados Alfabeticamente: ' + ordenados;
+                let listaHTML = "<ul>";
+                for(let valor of ordenados) {
+                    listaHTML += `<li>${valor}</li>`;
+                }
+                listaHTML += "</ul>";
+                document.getElementById("array").innerHTML = 'Valores Ordenados Alfabeticamente: ' + listaHTML;
             }
             else{
                 alert('Não digite números!');
             }
         }
+    </script>
+    
 
     </script>
 </body>
