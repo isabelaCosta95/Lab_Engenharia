@@ -1,69 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8">
+<title>Contador de Pessoas</title>
 </head>
 <body>
-    <div class="corpo"> 
+<script>
+    let totalMulheres = 0;
+    let totalHomens = 0;
+    let contadorMulheres;
+    let contadorHomens;
+    let totalPessoas;
 
-    </div>
-    <script>
-        var Total = document.createElement("h1");
-        var txtcont   = document.createTextNode("TOTAL");
-        Total.appendChild(txtcont);  
-        var recarrega = document.createElement("img");
-        recarrega.setAttribute("src", "https://cdn.icon-icons.com/icons2/1094/PNG/512/reload1_78509.png")      
-        var imageF = document.createElement("img");
-        imageF.setAttribute("src", "https://cdn-icons-png.flaticon.com/512/4140/4140047.png");
-        var imageM = document.createElement("img");
-        imageM.setAttribute("src", "https://cdn-icons-png.flaticon.com/512/2552/2552801.png");
-        var mais = document.createElement("img");
-        mais.setAttribute("src", "https://cdn-icons-png.flaticon.com/512/148/148764.png")
-        mais.setAttribute("onclick", "somarF();");
-        var mais2 = document.createElement("img");
-        mais2.setAttribute("src", "https://cdn-icons-png.flaticon.com/512/148/148764.png")
-        var menos = document.createElement("img");
-        menos.setAttribute("src", "https://img.freepik.com/fotos-premium/aritmetica-branca-menos-sinal-na-forma-de-circulo-de-botao-vermelho-math-3d-icon-ilustracao-de-renderizacao-3d_733455-21.jpg");
-        var menos2 = document.createElement("img");
-        menos2.setAttribute("src", "https://img.freepik.com/fotos-premium/aritmetica-branca-menos-sinal-na-forma-de-circulo-de-botao-vermelho-math-3d-icon-ilustracao-de-renderizacao-3d_733455-21.jpg");
+    function updateCounters() {
+        contadorMulheres.textContent = "Mulheres: " + totalMulheres;
+        contadorHomens.textContent = "Homens: " + totalHomens;
+        totalPessoas.textContent = "Total: " + (totalMulheres + totalHomens);
+    }
 
-        var F = document.createElement("h2");
-        var M = document.createElement("h2");
-        var mulher  = document.createTextNode("MULHER");
-        var homem   = document.createTextNode("HOMEM");
-        F.appendChild(mulher);
-        M.appendChild(homem);
+    var container = document.createElement("div");
+    container.setAttribute("style", "display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;");
+    var header = document.createElement("div");
+    header.setAttribute("style", "display: flex; justify-content: space-between; align-items: center; width: 100%; padding: 10px; box-sizing: border-box;");
 
-        
-        
-        
-        document.body.appendChild(Total);
-        document.body.appendChild(recarrega);
-        document.body.appendChild(imageF);
-        document.body.appendChild(mais);
-        document.body.appendChild(menos);
-        document.body.appendChild(imageM);
-        document.body.appendChild(mais2);
-        document.body.appendChild(menos2);
-        document.body.appendChild(F);
-        document.body.appendChild(M);
-        
-        var contF = 0;
-        var contM = 0;
-        function somarF(){
-            contF ++;
+    var Total = document.createElement("h1");
+    Total.textContent = "TOTAL";
+    Total.setAttribute("style", "flex-grow: 1; text-align: center; margin: 0;");
+    header.appendChild(Total);
+
+    totalPessoas = document.createElement("div");
+    totalPessoas.setAttribute("style", "font-size: 24px; height: 40px;");
+    header.appendChild(totalPessoas);
+
+    var recarrega = document.createElement("img");
+    recarrega.setAttribute("src", "https://cdn.icon-icons.com/icons2/1094/PNG/512/reload1_78509.png");
+    recarrega.setAttribute("style", "width: 50px; height: 50px; cursor: pointer;");
+    recarrega.onclick = function() {
+        totalMulheres = 0;
+        totalHomens = 0;
+        updateCounters();
+    };
+    header.appendChild(recarrega);
+
+    var contContainer = document.createElement("div");
+    contContainer.setAttribute("style", "display: flex; justify-content: space-around; align-items: center; width: 100%;");
+
+    contContainer.appendChild(createcontContainer("MULHER", "https://cdn-icons-png.flaticon.com/512/4140/4140047.png", true));
+    contContainer.appendChild(createcontContainer("HOMEM", "https://cdn-icons-png.flaticon.com/512/2552/2552801.png", false));
+
+    container.appendChild(header);
+    container.appendChild(contContainer);
+    document.body.appendChild(container);
+    updateCounters();
+
+    function createcontContainer(contLabel, imgSrc, isFemale) {
+        var contDiv = document.createElement("div");
+        contDiv.setAttribute("style", "display: flex; flex-direction: column; align-items: center;");
+
+        var label = document.createElement("h2");
+        label.textContent = contLabel;
+        contDiv.appendChild(label);
+
+        var image = document.createElement("img");
+        image.setAttribute("src", imgSrc);
+        image.setAttribute("style", "width: 200px; height: 200px;");
+        contDiv.appendChild(image);
+
+        var counter = document.createElement("div");
+        counter.setAttribute("style", "font-size: 24px; height: 40px;");
+        contDiv.appendChild(counter);
+
+        var control = document.createElement("div");
+        control.setAttribute("style", "display: flex;");
+        contDiv.appendChild(control);
+
+        var plusButton = createButton("https://cdn-icons-png.flaticon.com/512/148/148764.png", isFemale, true);
+        var minusButton = createButton("https://img.freepik.com/fotos-premium/aritmetica-branca-menos-sinal-na-forma-de-circulo-de-botao-vermelho-math-3d-icon-ilustracao-de-renderizacao-3d_733455-21.jpg", isFemale, false);
+        control.appendChild(plusButton);
+        control.appendChild(minusButton);
+
+        if (isFemale) {
+            contadorMulheres = counter;
+        } else {
+            contadorHomens = counter;
         }
-        function somarM(){
-            contM ++;
-        }
-        function subtrairF(){
-            contF --;
-        }
-        function subtrairM(){
-            contM --;
-        }
-    </script>
+
+        return contDiv;
+    }
+
+    function createButton(imgSrc, isFemale, isPlus) {
+        var button = document.createElement("img");
+        button.setAttribute("src", imgSrc);
+        button.setAttribute("style", "width: 50px; height: 50px; margin: 5px; cursor: pointer;");
+        button.onclick = function() {
+            if (isPlus) {
+                if (isFemale) {
+                    totalMulheres++;
+                } else {
+                    totalHomens++;
+                }
+            } else {
+                if (isFemale && totalMulheres > 0) {
+                    totalMulheres--;
+                } else if (!isFemale && totalHomens > 0) {
+                    totalHomens--;
+                }
+            }
+            updateCounters();
+        };
+        return button;
+    }
+</script>
 </body>
 </html>
