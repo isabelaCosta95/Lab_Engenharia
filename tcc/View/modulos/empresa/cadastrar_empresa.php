@@ -26,33 +26,33 @@
                 <div class="form-section">
                     <h2>Dados Principais</h2>
                         <label>Razão social
-                            <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                            <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                         </label>
                     <div class="form-row">
                         <div class="form-column">
                             <label>Nome Fantasia
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>Email
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>Telefone
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
                         </div>
                         <div class="form-column">
                             <label>Inscrição Municipal
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>CNPJ
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>Inscrição Estadual
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
                         </div>
                     </div>    
@@ -62,11 +62,11 @@
                     <div class="form-row">
                         <div class="form-column">
                             <label>Endereço
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>Bairro
-                                <input name="descricao" value="<?= isset($dados_categ) && isset($dados_categ->descricao) ? $dados_categ->descricao : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_emp) && isset($dados_emp->descricao) ? $dados_emp->descricao : "" ?>" type="text"/>
                             </label>
 
                             <label>Cidade
@@ -74,8 +74,8 @@
                                     <option>Selecione</option>
                                     <?php for($i = 0; $i < $total_cidade; $i++): 
                                         $selecionado = "";
-                                        if(isset($dados_cli->id))
-                                            $selecionado = ($lista_cidade[$i]->codigo == $dados_cli->cidade) ? "selected" : "";
+                                        if(isset($dados_emp->id))
+                                            $selecionado = ($lista_cidade[$i]->codigo == $dados_emp->cidade) ? "selected" : "";
                                     ?>
                                         <option value="<?= $lista_cidade[$i]->codigo ?>" <?= $selecionado ?>>
                                             <?= $lista_cidade[$i]->descricao ?>

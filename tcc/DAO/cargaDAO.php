@@ -10,49 +10,28 @@ class CargaDAO{
 
     public function insert($dados_carga){
         
-        $sql = "INSERT INTO carga(razao_social, nome_fantasia, cnpj_cpf, inscricao_estadual, endereco, 
-        bairro, complemento, numero, cidade, estado, telefone1, telefone2, observacao, ativo, email)
-        VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO carga(cliente, produto, quantidade, valor_total, status)
+        VALUES(?, ?, ?, ?, ?)";
         
         $stmt = $this->conexao->prepare($sql);+
-        $stmt->bindValue(1,$dados_carga['razao_social']);
-        $stmt->bindValue(2,$dados_carga['nome_fantasia']);
-        $stmt->bindValue(3,$dados_carga['cnpj_cpf']);
-        $stmt->bindValue(4,$dados_carga['inscricao_estadual']);
-        $stmt->bindValue(5,$dados_carga['endereco']);
-        $stmt->bindValue(6,$dados_carga['bairro']);
-        $stmt->bindValue(7,$dados_carga['complemento']);
-        $stmt->bindValue(8,$dados_carga['numero']);
-        $stmt->bindValue(9,$dados_carga['cidade']);
-        $stmt->bindValue(10,$dados_carga['estado']);
-        $stmt->bindValue(11,$dados_carga['telefone1']);
-        $stmt->bindValue(12,$dados_carga['telefone2']);
-        $stmt->bindValue(13,$dados_carga['observacao']);
-        $stmt->bindValue(14,$dados_carga['ativo']);
-        $stmt->bindValue(15,$dados_carga['email']);
+        $stmt->bindValue(1,$dados_carga['cliente']);
+        $stmt->bindValue(2,$dados_carga['produto']);
+        $stmt->bindValue(3,$dados_carga['quantidade']);
+        $stmt->bindValue(4,$dados_carga['valor_total']);
+        $stmt->bindValue(5,$dados_carga['status']);
         $stmt->execute();
     }
 
     public function update($dados_carga) {
-        $sql = "UPDATE carga SET razao_social = ?, nome_fantasia = ?, cnpj_cpf = ?, inscricao_estadual = ?, endereco = ?, bairro = ?, complemento = ?, numero = ?, cidade = ?, estado = ?, telefone1 = ?, telefone2 = ?, observacao = ?, ativo = ?, email = ? WHERE id = ?";
+        $sql = "UPDATE carga SET cliente = ?, produto = ?, quantidade = ?, valor_total = ?, status = ? WHERE id = ?";
     
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(1, $dados_carga['razao_social']);
-        $stmt->bindValue(2, $dados_carga['nome_fantasia']);
-        $stmt->bindValue(3, $dados_carga['cnpj_cpf']);
-        $stmt->bindValue(4, $dados_carga['inscricao_estadual']);
-        $stmt->bindValue(5, $dados_carga['endereco']);
-        $stmt->bindValue(6, $dados_carga['bairro']);
-        $stmt->bindValue(7, $dados_carga['complemento']);
-        $stmt->bindValue(8, $dados_carga['numero']);
-        $stmt->bindValue(9, $dados_carga['cidade']);
-        $stmt->bindValue(10, $dados_carga['estado']);
-        $stmt->bindValue(11, $dados_carga['telefone1']);
-        $stmt->bindValue(12, $dados_carga['telefone2']);
-        $stmt->bindValue(13, $dados_carga['observacao']);
-        $stmt->bindValue(14, $dados_carga['ativo']);
-        $stmt->bindValue(15, $dados_carga['email']);
-        $stmt->bindValue(16, $dados_carga['id']); 
+        $stmt->bindValue(1, $dados_carga['cliente']);
+        $stmt->bindValue(2, $dados_carga['produto']);
+        $stmt->bindValue(3, $dados_carga['quantidade']);
+        $stmt->bindValue(4, $dados_carga['valor_total']);
+        $stmt->bindValue(5, $dados_carga['status']);
+        $stmt->bindValue(6, $dados_carga['id']); 
         $stmt->execute();
     }
     

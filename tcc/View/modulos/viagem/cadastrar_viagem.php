@@ -144,16 +144,34 @@
                             <label for="dt_fim"> Data Fim
                                 <input id="dt_fim" name="dt_fim" value="<?= isset($dados_pagar) && isset($dados_pagar->dt_fim) ? $dados_pagar->dt_fim : date('Y-m-d') ?>" type="date"/>
                             </label>
+                            <label>Observação
+                                <input name="observacao" value="<?= isset($dados_car) && isset($dados_car->observacao) ? $dados_car->observacao : "" ?>" type="text"/>
+                            </label>
                         </div>
                         <div class="form-column">
                             <label>Endereço chegada
                                 <input name="endereco_chegada" value="<?= isset($dados_car) && isset($dados_car->endereco_chegada) ? $dados_car->endereco_chegada : "" ?>" type="text" />
                             </label>
+
+                            <div style="display: flex; align-items: center; gap: 10px;">
+    <label for="carga" style="margin: 0; flex-grow: 1;">
+        Carga
+        <select id="carga" name="carga" class="form-control" style="width: 100%;">
+            <option value="">Selecione</option>
+            <?php foreach ($carga as $vei): ?>
+                <option value="<?= $vei['id'] ?>" 
+                    <?= isset($dados_pagar) && $dados_pagar->carga == $vei['id'] ? 'selected' : '' ?>>
+                    <?= $vei['descricao'] ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </label>
+    <img src="/tcc/View/includes/imagem/adicionar.png" alt="Adicionar" style="width: 35px; height: auto; cursor: pointer;" />
+</div>
+
+
                         </div>
                     </div>
-                    <label>Observação
-                                <input name="observacao" value="<?= isset($dados_car) && isset($dados_car->observacao) ? $dados_car->observacao : "" ?>" type="text"/>
-                            </label>
                 </div>
 
                 </br>

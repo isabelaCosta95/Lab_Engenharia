@@ -28,12 +28,12 @@
                     <div class="form-row">
                         <div class="form-column">
                             <label>Nome do cargo
-                                <input name="quantidade" value="<?= isset($dados_car) && isset($dados_car->quantidade) ? $dados_car->quantidade : "" ?>" type="text"/>
+                                <input name="nome" value="<?= isset($dados_car) && isset($dados_car->nome) ? $dados_car->nome : "" ?>" type="text"/>
                             </label>
                         </div>
                         <div class="form-column">
                             <label>Descrição
-                                <input name="quantidade" value="<?= isset($dados_car) && isset($dados_car->quantidade) ? $dados_car->quantidade : "" ?>" type="text"/>
+                                <input name="descricao" value="<?= isset($dados_car) && isset($dados_car->descricao) ? $dados_car->descricao : "" ?>" type="text"/>
                             </label>
                         </div>
                     </div>    

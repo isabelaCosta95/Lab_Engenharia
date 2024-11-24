@@ -40,6 +40,27 @@ try{
             EmpresaController::excluir();
         break;
 
+        // Rotas Seguradora
+        case '/tcc/seguradora':
+            SeguradoraController::index();
+        break;
+
+        case '/tcc/seguradora/cadastrar':
+            SeguradoraController::cadastrar();
+        break;
+
+        case '/tcc/seguradora/ver':
+            SeguradoraController::ver();
+        break;
+
+        case '/tcc/seguradora/salvar':
+            SeguradoraController::salvar();
+        break;
+
+        case '/tcc/seguradora/excluir':
+            SeguradoraController::excluir();
+        break;
+
         // Rotas Cidade
         case '/tcc/cidade':
             CidadeController::index();
@@ -296,6 +317,23 @@ try{
 
     case '/tcc/funcionario/excluir':
         FuncionarioController::excluir();
+    break;
+
+    // Rotas Peça
+    case '/tcc/peca':
+        PecaController::index();
+    break;
+
+    case '/tcc/peca/cadastrar':
+        PecaController::cadastrar();
+    break;
+
+    case '/tcc/peca/ver':
+        PecaController::ver();
+    break;
+
+    case '/tcc/peca/salvar':
+        PecaController::salvar();
     break;
 
     // Rotas Cargo

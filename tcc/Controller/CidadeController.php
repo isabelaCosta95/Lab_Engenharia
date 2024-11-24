@@ -19,7 +19,10 @@ class CidadeController{
 
         $cidade_DAO = new CidadeDAO();
         $dados_para_salvar = array(
-            'descricao' => $_POST['descricao']
+            'descricao' => $_POST['descricao'],
+            'estado' => $_POST['estado'],
+            'ibge' => $_POST['ibge']
+
         );
             
         if(isset($_POST['id'])){

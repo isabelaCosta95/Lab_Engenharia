@@ -63,7 +63,8 @@
         <a href="/tcc/formaPagamento/cadastrar" class="nav-link"><i class="fas fa-truck"></i>Cadastrar Forma de Pagamentos</a>
         <a href="/tcc/cidade/cadastrar" class="nav-link"><i class="fas fa-truck"></i>Cadastrar Cidades</a>
         <a href="/tcc/cargo/cadastrar" class="nav-link"><i class="fas fa-truck"></i>Cadastrar Cargo</a>
-
+        <a href="/tcc/peca/cadastrar" class="nav-link"><i class="fas fa-truck"></i>Cadastrar Peças</a>
+        <a href="/tcc/seguradora/cadastrar" class="nav-link"><i class="fas fa-truck"></i>Cadastrar Seguradora</a>
     </nav>
 </body>
 </html>

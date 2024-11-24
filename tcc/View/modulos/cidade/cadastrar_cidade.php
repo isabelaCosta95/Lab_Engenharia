@@ -35,8 +35,8 @@
                                     <option>Selecione</option>
                                     <?php for($i = 0; $i < $total_estado; $i++): 
                                         $selecionado = "";
-                                        if(isset($dados_cli->id))
-                                            $selecionado = ($lista_estado[$i]->codigo == $dados_cli->estado) ? "selected" : "";
+                                        if(isset($dados_cid->id))
+                                            $selecionado = ($lista_estado[$i]->codigo == $dados_cid->estado) ? "selected" : "";
                                     ?>
                                         <option value="<?= $lista_estado[$i]->codigo ?>" <?= $selecionado ?>>
                                             <?= $lista_estado[$i]->descricao ?>
@@ -48,7 +48,7 @@
                         </div>
                         <div class="form-column">
                             <label>Código IBGE
-                                <input name="descricao" value="<?= isset($dados_cid) && isset($dados_cid->descricao) ? $dados_cid->descricao : "" ?>" type="text"/>
+                                <input name="ibge" value="<?= isset($dados_cid) && isset($dados_cid->ibge) ? $dados_cid->ibge : "" ?>" type="text"/>
                             </label>
                         </div>
                     </div>    
